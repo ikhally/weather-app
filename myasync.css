@@ -1,0 +1,68 @@
+.bckgrnd{
+    border: solid 1px none;
+    height: 100vh;
+    width: 100%;
+    background-image: url(pics/FB_IMG_16643955208083256.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20px;
+}
+.input{
+    height: 50px;
+    width: 400px;
+    /* border-radius: 12px; */
+    font-size: larger;
+    color: white;
+    margin-top: auto;
+    border-top: 0px;
+    border-bottom: 1px solid black;
+    border-right: 0px;
+    border-left: 0px;
+    background: transparent;
+    outline: none;
+}
+.btn{
+    height: 40px;
+    position: absolute;
+    margin-left: 340px;
+    margin-top: 5px;
+    
+}
+.degri{
+    color: red;
+    margin-top: -120px;
+}
+.case{
+    border: 1px solid none;
+    height: 550px;
+    width: 70%;
+    margin-left: 170px;
+    background-color: rgba(255, 255, 255, 0.336);
+}
+@media all and (max-width:500px) {
+    body{
+        width: 100%;
+        /* background-image: url(pics/FB_IMG_16643955208083256.jpg); */
+        /* background-size: cover; */
+        /* background-repeat: no-repeat; */
+        /* background-position: center; */
+        /* height: 100vh; */
+    }
+    .input{
+        width: 200px;
+    }
+    .btn{
+        margin-left: 147px;
+    }
+    .case{
+        width: 70%;
+        margin-left: 80px;
+        height: 550px
+    }
+    .background{
+       height: 670px;
+    }
+}
+
+
