@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weater App</title>
+    <link rel="stylesheet" href="myasync.css">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="img/weatherLogo.png" type="image/x-icon">
+</head>
+<body>
+<div class="bckgrnd" >
+    <div class="case">
+        <button class="btn btn-outline-info" onclick="test()"><svg style="margin-left: 0px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z" fill="#384A62"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 11-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" fill="#384A62"/></svg></button>
+        <input class="input" type="text" placeholder="Search here" id="cityname">
+
+        <div id="bckgrnd">
+            <h5 style="color: white;">Condition</h5>
+            <p style="color: white;" id="condition"></p>
+        </div>
+        <div>
+            <h5 style="color: white;">Country</h5>
+            <p style="color: white;" id="country"></p>
+        </div>
+        <div>
+            <h5 style="color: white;">Longitude</h5>
+            <p style="color: white;" id="longitude"></p>
+        </div>
+        <div>
+            <h5 style="color: white;">Latitude</h5>
+            <p style="color: white;" id="latitude"></p>
+        </div>
+        <div>
+            <h5 style="color: white;">Cloud</h5>
+            <p style="color: white;" id="cloud"></p>
+        </div>
+        <div>
+            <h5 style="color: white;">City</h5>
+            <p style="color: white;" id="cityName"></p>
+        </div>
+        
+        <div>
+            <h5 style="color: white;">Humidity</h5>
+            <p style="color: white;" id="show"></p>
+        </div>
+        
+        <div>
+            <p style="color: white;" id="timeDisp"></p>
+        </div>
+
+    </div>
+    
+    
+    
+    
+    <div class="degri">
+        <h5 style="color: white;">Degree</h5>
+        <p style="color: white;" id="degree" ></p> 
+        <img src="img/weatherLogo.png" alt="" height="40px">
+    </div>
+
+    
+   
+</div>
+    <script src="myasync.js"></script>
+</body>
+</html>

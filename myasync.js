@@ -1,14 +1,3 @@
-// let myName = "kunle"
-// const test = async()=>{
-//     await delay()
-//     console.log(myName)
-// }
-// const delay = ()=>{
-//     setTimeout(() => {
-//         myName = "ikhally"
-//     }, 3000);
-// }
-
 // const endpoint = "https://jsonplaceholder.typicode.com/users"
 // const test = async()=>{
 //     let response = await fetch(endpoint)
@@ -24,7 +13,6 @@
     let response = await fetch(endpoint)
     let jsonResponse = await response.json()
     console.log(jsonResponse)
-    
     cityName.innerHTML = jsonResponse.name;
     show.innerHTML = jsonResponse.main.humidity
     degree.innerHTML = `${Math.round(jsonResponse.main.temp)}${"<sup>o</sup>C"}`
@@ -38,53 +26,60 @@
     wind.innerHTML = `${jsonResponse.wind.speed}${"km/hr"}`
     gust.innerHTML = `${jsonResponse.wind.gust}${"km/hr"}`
 
- 
-// const timeDisp = ()=>{
-//     const time = new Date();
 
-//     const hour = timeFormat((time.getHours)) 
-//     const minutes = timeFormat((time.getMinutes))
-//     const day = timeFormat((time.getDay))
-//     const month = timeFormat((time.getMonth))
-//     const year = timeFormat((time.getFullYear)).
-//     clock.innerHTML = `${hour}:${minutes}-${day},${month}${year}`
-// }
-// setInterval(timeDisp, 1000)
+    if (jsonResponse.weather[0].main === "Rain"){
+        gen.style.backgroundImage = `url(/img/raining.jpg)`
+    }
+    else if(jsonResponse.weather[0].main === "Clouds"){
+        gen.style.backgroundImage = `url(img/cloud.jpg)`
+    }
+    else{gen.style.backgroundImage = `url(/img/sunny.jpg)`}
+}
+const timeDisp = ()=>{
+    const time = new Date();
 
-// const timeFormat = (timer)=>{
-//     if(timer<10){
-//         return 0
-//     }
-// }
+    const hour = timeFormat((time.getHours()))
+    const minutes = timeFormat((time.getMinutes()))
+    const day = timeFormat((time.getDay()))
+    const month = timeFormat((time.getMonth()))
+    const year = timeFormat((time.getFullYear()))
+    clock.innerHTML = `${hour}:${minutes}-${day},${month} ${year}`
+}
+setInterval(timeDisp, 1000);
 
-// }
+const timeFormat = (timer)=>{
+    if(timer<10){
+    return '0'+timer
+    }
+    else{
+        return timer
+    }
+}
 async function currentLocation(){
     navigator.geolocation.getCurrentPosition((position)=>{
-        let longitude = position.coords.longitude
-        let latitude = position.coords.latitude
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon${longitude}&appid=${key}&units=metric`
-        fetch(url).then((response)=>response.json()).then((currentLocation)=>{
-            cityName.innerHTML = currentLocation.name;
-            degree.innerHTML = `${Math.round(currentLocation.main.temp)}${"<sup>o</sup>C"}`
-            condition.innerHTML = currentLocation.weather[0].description;
-            country.innerHTML = currentLocation.sys.country;
-            longitude.innerHTML = currentLocation.coord.lon;
-            latitude.innerHTML = currentLocation.coord.lat; 
-            cloud.innerHTML = `${currentLocation.clouds.all}${"%"}`
-            pressure.innerHTML = currentLocation.main.pressure
-            humidity.innerHTML = `${currentLocation.main.humidity}${"%"}`
-            wind.innerHTML = `${currentLocation.wind.speed}${"km/hr"}`
-            gust.innerHTML = `${jsonResponse.wind.gust}${"km/hr"}` 
+        let longiTude = position.coords.longitude
+      let  latiTude = position.coords.latitude
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latiTude}&lon=${longiTude}&appid=${key}&units=metric`
+      fetch(url).then((response)=>response.json()).then((currentLocation)=>{
+          cityName.innerHTML = currentLocation.name;
+          degree.innerHTML = `${Math.round(currentLocation.main.temp)}${"<sup>Â°</sup>C"}`
+          condition.innerHTML = currentLocation.weather[0].description;
+          country.innerHTML = currentLocation.sys.country
+          longitude.innerHTML = longiTude
+          latitude.innerHTML = latiTude
+          cloud.innerHTML = `${currentLocation.clouds.all}${"%"}`
+          pressure.innerHTML = currentLocation.main.pressure
+          humidity.innerHTML = `${currentLocation.main.humidity}${"%"}`
+          wind.innerHTML = `${currentLocation.wind.speed}${"Km/hr"}`
+          gust.innerHTML = `${currentLocation.wind.gust}${"Km/hr"}`
 
-            if(jsonResponse.weather[0].main === "Rain"){
-                document.getElementById("bckgrnd").style.backgroundImage = `url(pics/raining.jpg)`
-            }
-            else if(jsonResponse.weather[0].main === "Clouds"){
-                document.getElementById("bckgrnd").style.backgroundImage = `url(pics/cloud.jpg)`
-            }
-            else{
-                document.getElementById("bckgrnd").style.backgroundImage = `url(pics/FB_IMG_16643955208083256.jpg)`
-            }
-        })
+          if (currentLocation.weather[0].main === "Rain"){
+            gen.style.backgroundImage = `url(/img/raining.jpg)`
+        }
+        else if(currentLocation.weather[0].main === "Clouds"){
+            gen.style.backgroundImage = `url(/img/cloud.jpg)`
+        }
+        else{gen.style.backgroundImage = `url(/img/sunny.jpg)`}
+      })
     })
 }
